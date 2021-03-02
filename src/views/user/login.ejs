@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include ("../partials/head") %> 
+</head>
+<body>
+    
+    <main class="container-fluid vh-100 d-flex justify-content-center align-items-center bg-danger">
+        <section class="row text-center">
+           
+            <form class="col-12 needs-validation" action="/user/access" method="post">
+            
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control <%= locals.errors && locals.errors.email ? 'is-invalid' : null  %>" id="email" name="email" placeholder="name@example.com" value="<%= locals.errors && !locals.errors.email ? data.email : null  %>" >
+                    <label for="email">Email</label>
+                    <div class="invalid-tooltip">
+                        <%= locals.errors && locals.errors.email ? locals.errors.email.msg : null %> 
+                    </div>
+                  </div>
+                
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Min 6 character">
+                    <label for="password">Password</label>
+                </div>
+                
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-dark mb-3">Confirm identity</button>
+                </div>
+            
+            </form>
+
+        </section>
+    </main>
+
+    <%- include ("../partials/libs") %> 
+</body>
+</html>

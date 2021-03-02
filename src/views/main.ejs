@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include ("partials/head") %> 
+</head>
+<body>
+    
+    <main class="container-fluid vh-100 d-flex justify-content-center align-items-center bg-danger">
+        <section class="row text-center">
+            <% if (user) { %>
+                <h2 class="display-1">Welcome! <%= String(user.name).toUpperCase()  %></h2>
+                <nav class="d-flex justify-content-around align-items-center">
+                    <a href="/user/logout" class="btn btn-lg btn-outline-danger flex-fill">Logout</a>
+                    <a href="/user/profile" class="btn btn-lg btn-light flex-fill">Profile</a>
+                </nav>
+                <% if (user.roll != 1) { %>
+                    <h3 class="display-3"> Awesome You are admin</h3>
+                <% } %>
+
+            <% } else { %>
+                <h2 class="display-1 text-white">Welcome!</h2>
+                <nav class="d-flex justify-content-around align-items-center">
+                    <a href="/user/login" class="btn btn-lg btn-dark flex-fill">Login</a>
+                    <a href="/user/regiter" class="btn btn-lg btn-outline-light flex-fill">Register</a>
+                </nav>
+            <% }%>
+
+        </section>
+    </main>
+
+    <%- include ("partials/libs") %> 
+</body>
+</html>
